@@ -44,7 +44,6 @@ public class Main extends Activity {
 
         //Initialize all buttons and fields
         init();
-
     }
 
     private void init(){
@@ -226,8 +225,9 @@ public class Main extends Activity {
             num1= Double.parseDouble(textView.getText().toString());
 
         else{
+
             num2=Double.parseDouble(textView.getText().toString());
-            calculate(num1,num2,chosenAction);
+            calculate();
         }
 
         chosenAction = action;
@@ -238,20 +238,20 @@ public class Main extends Activity {
     private void equalsClick(){
         if (textView.getText().toString()!="") {
             num2 = Double.parseDouble(textView.getText().toString());
-            calculate(num1, num2, chosenAction);
+            calculate();
             chosenAction = "";
             delete = true;
         }
     }
 
-    private void calculate (double num1 ,double num2,String action){
-        if (action=="Plus")
+    private void calculate (){
+        if (chosenAction=="Plus")
             textView.setText(String.valueOf(num1+num2));
-        if (action=="Minus")
+        if (chosenAction=="Minus")
             textView.setText(String.valueOf(num1-num2));
-        if (action=="Multiply")
+        if (chosenAction=="Multiply")
             textView.setText(String.valueOf(num1*num2));
-        if (action=="Divide")
+        if (chosenAction=="Divide")
             textView.setText(String.valueOf(num1/num2));
 
         num1=Double.parseDouble(textView.getText().toString());
